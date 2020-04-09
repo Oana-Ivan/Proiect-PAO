@@ -1,12 +1,11 @@
 package clase;
 
-import java.sql.SQLOutput;
 
 abstract class Persoana {
     private String nume;
     private int varsta;
 
-    // constructor
+    // constructori
     public Persoana(Persoana persoana) {
         this.nume = persoana.nume;
         this.varsta = persoana.varsta;
@@ -20,6 +19,7 @@ abstract class Persoana {
         System.out.println("Nume: " + this.nume);
         System.out.println("Varsta: " + this.varsta);
     }
+
     // metode get
     public String getNume() {
         return nume;
