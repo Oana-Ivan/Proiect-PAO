@@ -4,10 +4,10 @@ public class Bibliotecar extends Persoana{
     private int salariu;
     private int vechime;
 
-    public Bibliotecar(Bibliotecar b) {
-        super(b);
-        this.salariu = b.salariu;
-        this.vechime = b.vechime;
+    public Bibliotecar(Bibliotecar bibliotecar) {
+        super(bibliotecar);
+        this.salariu = bibliotecar.salariu;
+        this.vechime = bibliotecar.vechime;
     }
     public Bibliotecar(String nume, int varsta, int salariu, int vechime) {
         super(nume, varsta);
@@ -21,6 +21,7 @@ public class Bibliotecar extends Persoana{
         System.out.println("Salariu: " + this.salariu);
         System.out.println("Vechime: " + this.vechime);
     }
+
     public int getSalariu() {
         return salariu;
     }
