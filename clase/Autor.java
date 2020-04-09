@@ -17,17 +17,16 @@ public class Autor extends Persoana {
         this.listaTitluriCarti = new ArrayList<String>();
         this.nrCarti = nrCarti;
         for (int i = 0; i < this.listaTitluriCarti.size(); i++) {
-            // this.listaTitluriCarti[i] = listaTitluriCarti[i];
             this.listaTitluriCarti.add(listaTitluriCarti.get(i));
         }
     }
 
-    public int getNrCarti () {
-        return nrCarti;
-    }
+    // metode get
+    public int getNrCarti () { return nrCarti; }
     public List<String> getListaTitluriCarti () {
         return listaTitluriCarti;
     }
+
     @Override
     public void afisareDateComplete() {
         System.out.println("Autor: " + getNume());
