@@ -1,62 +1,51 @@
 package clase;
 
 public class Carte {
-    private Autor autor;
+    private String numeAutor;
     private String titlu;
     private int ISBN;
-//    private int ziRetur, lunaRetur, anRetur;
     private int nrInprumutari;
 
-    public Carte (Autor autor, String titlu, int ISBN) { //, int ziR, int lunaR, int anR) {
-        this.autor = autor;
+    public Carte () {
+        this.numeAutor = "";
+        this.titlu = "";
+        this.ISBN = 0;
+        this.nrInprumutari = 0;
+    }
+    public Carte (String numeAutor, String titlu, int ISBN) {
+        this.numeAutor = numeAutor;
         this.titlu = titlu;
         this.ISBN = ISBN;
-//        this.ziRetur = ziR;
-//        this.lunaRetur = lunaR;
-//        this.anRetur = anR;
         this.nrInprumutari = 0;
     }
     public void afisareDate() {
-        System.out.println("Titlu: " + titlu);
-        System.out.println("Autor: " + this.autor.getNume());
+        System.out.println("Titlu: " + this.titlu);
+        System.out.println("Autor: " + this.numeAutor);
         System.out.println("ISBN: " + this.ISBN);
+        System.out.println("Nr imprumuturi: " + this.nrInprumutari);
     }
+    public void incrementareNrImprumuturi() {
+        this.nrInprumutari++;
+    }
+
     // metode get
-    public Autor getAutor() { return autor; }
+    public String getAutor() { return numeAutor; }
     public String getTitlu() {
         return titlu;
     }
     public int getISBN() {
         return ISBN;
     }
-//    public int getZiRetur() {
-//        return ziRetur;
-//    }
-//    public int getLunaRetur() {
-//        return lunaRetur;
-//    }
-//    public int getAnRetur() {
-//        return anRetur;
-//    }
     public int getNrInprumutari() { return nrInprumutari; }
 
     // metode set
-    public void setAutor(Autor a) {
-        autor = a;
+    public void setNumeAutor(String numeAutor) {
+        this.numeAutor = numeAutor;
     }
-    public void setTitlu(String t) {
-        titlu = t;
+    public void setTitlu(String titlu) {
+        this.titlu = titlu;
     }
-    public void setISBN(int i) {
-        ISBN = i;
+    public void setISBN(int ISBN) {
+        this.ISBN = ISBN;
     }
-//    public void setZiRetur(int zi) {
-//        ziRetur = zi;
-//    }
-//    public void setLunaRetur(int luna) {
-//        lunaRetur = luna;
-//    }
-//    public void setAnRetur(int an) {
-//        anRetur = an;
-//    }
 }
