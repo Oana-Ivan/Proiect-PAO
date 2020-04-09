@@ -1,25 +1,31 @@
 package clase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Autor extends Persoana {
     private int nrCarti;
-    private String [] listaTitluriCarti;
+    private List<String> listaTitluriCarti;
 
     public Autor(String nume, int varsta, String numeCarte) {
         super(nume, varsta);
+        listaTitluriCarti = new ArrayList<String>();
         addCarte(numeCarte);
     }
-    public Autor(String nume, int varsta, int nrCarti, String [] listaTitluriCarti) {
+    public Autor(String nume, int varsta, int nrCarti, List<String> listaTitluriCarti) {
         super(nume, varsta);
+        this.listaTitluriCarti = new ArrayList<String>();
         this.nrCarti = nrCarti;
-        for (int i = 0; i < nrCarti; i++) {
-            this.listaTitluriCarti[i] = listaTitluriCarti[i];
+        for (int i = 0; i < this.listaTitluriCarti.size(); i++) {
+            // this.listaTitluriCarti[i] = listaTitluriCarti[i];
+            this.listaTitluriCarti.add(listaTitluriCarti.get(i));
         }
     }
 
     public int getNrCarti () {
         return nrCarti;
     }
-    public String[] getListaTitluriCarti () {
+    public List<String> getListaTitluriCarti () {
         return listaTitluriCarti;
     }
     @Override
@@ -27,12 +33,12 @@ public class Autor extends Persoana {
         System.out.println("Autor: " + getNume());
         System.out.println("Numar carti: " + this.nrCarti);
         for (int i = 0; i < this.nrCarti; i++) {
-            System.out.println((i + 1) + ". " + this.listaTitluriCarti[i]);
+            System.out.println((i + 1) + ". " + this.listaTitluriCarti.get(i));
         }
     }
 
     public void addCarte(String c) {
         nrCarti++;
-        listaTitluriCarti[nrCarti] = c;
+        listaTitluriCarti.add(c);
     }
 }
