@@ -1,16 +1,16 @@
 package clase;
 
-public class Abonat extends Persoana{
+public class Abonat extends Persoana {
     private static int nrAbonat;
     private String idAbonat;
-    private Abonament abonament;
+    private String numeAbonament;
     private int penalizari;
+    private int nrCartiImprumutate;
 
-    public Abonat(String nume, int varsta, Abonament abonament, int penalizari) {
+    public Abonat(String nume, int varsta, String numeAbonament, int penalizari) {
         super(nume, varsta);
-        this.abonament = abonament;
+        this.numeAbonament = numeAbonament;
         this.penalizari = penalizari;
-
         nrAbonat++;
         idAbonat = "abonat" + Integer.toString(nrAbonat);
     }
@@ -19,15 +19,19 @@ public class Abonat extends Persoana{
     public void afisareDateComplete() {
         System.out.println("Id abonat: " + this.idAbonat);
         System.out.println("Nume: " + this.getNume());
-        System.out.println("Abonament:" + this.abonament.getDenumire());
+        System.out.println("Abonament:" + this.numeAbonament);
         System.out.println("Penalizari: " + this.penalizari);
     }
+    public void incrementareNrImprumuturi() {
+        nrCartiImprumutate++;
+    }
+
     // metode get
     public String getIdAbonat() {
         return idAbonat;
     }
-    public Abonament getAbonament() {
-        return abonament;
+    public String getAbonament() {
+        return numeAbonament;
     }
     public int getPenalizari() {
         return penalizari;
@@ -37,8 +41,8 @@ public class Abonat extends Persoana{
     public void setIdAbonat(String idAbonat) {
         this.idAbonat = idAbonat;
     }
-    public void setAbonament(Abonament abonament) {
-        this.abonament = abonament;
+    public void setAbonament(String numeAbonament) {
+        this.numeAbonament = numeAbonament;
     }
     public void setPenalizari(int penalizari) {
         this.penalizari = penalizari;
