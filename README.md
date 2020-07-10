@@ -3,6 +3,11 @@
 
 Acest proiect propune un mod de reprezentare a actiunilor ce sunt caracteristice unui biblioteci
 
+## Modificari pentru partea a doua a proiectului:
+- adaugat clasa Audit
+- adaugat clasa Service
+- modificat clasa Main
+
 ## Obiecte implementate
 - clasa Carte, din care deriva:
     - CarteLiteratura
