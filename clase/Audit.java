@@ -10,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Audit {
+    
+    // clasa folosita pentru a scrie in fisierul audit.csv actiunea realizata si data la care a fost realizata 
+    
     private static Audit instance;
 
     private Audit() {
@@ -99,7 +102,6 @@ public class Audit {
         try {
             Files.write(Paths.get("audit.csv"), (s + "," + dateFormat.format(date) + "\n").getBytes(), StandardOpenOption.APPEND);
         }catch (IOException e) {
-            //exception handling left as an exercise for the reader
         }
 
     }
