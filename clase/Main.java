@@ -1,15 +1,42 @@
 package clase;
 
-
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Gestiune g = new Gestiune();
+        Audit audit = Audit.getInstance();
+        Service service = Service.getInstance();
+
+        // Citire din CSV-uri
+        List<Abonat> a1 = service.readAbonat();
+        if (a1.size() > 0)
+            for(Abonat a: a1) g.adaugareAbonat(a.getNume(), a.getVarsta(), a.getAbonament(), a.getPenalizari());
+        a1.clear();
+
+        List<Bibliotecar> a2 = service.readBibliotecar();
+        if (a2.size() > 0)
+            for(Bibliotecar b: a2) 
+                g.adaugareBibliotecar(b.getNume(), b.getVarsta(), b.getSalariu(), b.getVechime());
+        a2.clear();
+
+        List<CarteLiteratura> a3 = service.readCarteLiteratura();
+        if (a3.size() > 0)
+            for(CarteLiteratura c: a3) 
+                g.adaugareCarteLiteratura(c.getAutor(), c.getTitlu(), c.getISBN(), c.getCurentLiterar(), c.getNrVolume());
+        a3.clear();
+
+        List<CarteStiintifica> a4 = service.readCarteStiintifica();
+        if (a4.size() > 0)
+            for(CarteStiintifica c: a4) 
+                g.adaugareCarteStiintifica(c.getAutor(), c.getTitlu(), c.getISBN(), c.getNrTermeniIndex(), c.getNrSurseBibliografice());
+        a4.clear();
+
         // afisare meniu
         afisareMeniu();
 
         Scanner input = new Scanner(System.in);
-        Gestiune g = new Gestiune();
         int optiuneAleasa = 1;
 
         while (optiuneAleasa != 0) {
@@ -18,6 +45,9 @@ public class Main {
             String enter = input.nextLine();
             switch (optiuneAleasa) {
                 case 0:
+                    service.writeAbonat(g.getAbonati()); 
+                    service.writeBibliotecar(g.getBibliotecari()); 
+                    service.writeCarti(g.getCarti());
                     break;
                 case 1: {
                     // citire date de la tastatura
@@ -26,7 +56,7 @@ public class Main {
                     System.out.println("ISBN: "); int ISBN = input.nextInt();
                     enter = input.nextLine();
                     System.out.println("Curent literar: "); String curentLiterar = input.nextLine();
-                    System.out.println("Nrmar de volume: "); int nrVolume = input.nextInt();
+                    System.out.println("Numar de volume: "); int nrVolume = input.nextInt();
                     enter = input.nextLine();
 
                     // apelare functie din gestiune
@@ -136,6 +166,7 @@ public class Main {
                     System.out.println("Optiunea aleasa nu exista.");
 
             }
+            audit.scriereFisier(optiuneAleasa);
         }
     }
 
